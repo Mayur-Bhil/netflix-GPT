@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react'
 import Header from './Header'
 import { checkValidetData } from '../utils/Validate';
+import {createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../utils/firebase';
 const Login = () => {
 
    const [isSignin,setisSign] = useState(true);
@@ -15,13 +17,18 @@ const Login = () => {
    
       
     const message = checkValidetData(email.current.value,password.current.value);
-    setErrorMessage(message)
-    console.log(email.current.value);
-    console.log(password.current.value);
-    // console.log(message);
-    
-    
+    setErrorMessage(message);
+
+     if(message)return ;
+
+      if(!isSignin){
+      
+    }
+  else{
+
   }
+
+}
 
   const toggleSigninForm = () =>{
       setisSign(!isSignin);
@@ -45,5 +52,4 @@ const Login = () => {
     </div>
   )
 }
-
 export default Login;
