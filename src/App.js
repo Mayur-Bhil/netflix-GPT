@@ -1,14 +1,15 @@
 import React from 'react'
 import Body from './components/Body'
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore';
 
 const App = () => {
   return (
-    <div>
-        <Body/>
-    </div>
+  <Provider store={appStore}>
+              <Body/>
+  </Provider>
   )
 }
-
 export default App;
 
 //good Library For Form ans that is formic
