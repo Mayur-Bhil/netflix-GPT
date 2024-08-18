@@ -4,12 +4,16 @@ import { checkValidetData } from '../utils/Validate';
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/Userslice';
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
    const [isSignin,setisSign] = useState(true);
    const [ErrorMessage,setErrorMessage] = useState(null);
    
+   const name = useRef(null);
    const email = useRef(null);
    const password = useRef(null);
 
@@ -28,16 +32,28 @@ const Login = () => {
           .then((userCredential) => {
             // Signed up 
             const user = userCredential.user;
+            updateProfile(user, {
+              displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/142144848?v=4"
+            }).then(() => {
+              // Profile updated!
+              const {uid,email,displayName,photoURL} = user;
+              dispatch(addUser({uid:uid,email : email,displayName : displayName,photoURL:photoURL}));
+              
+              navigate("/brwose")
+              // ...
+            }).catch((error) => {
+              setErrorMessage(error)
+              // ...
+            });
             
             console.log(user);
-            navigate("/brwose")
             
             
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            setErrorMessage(errorCode+ " " +errorMessage);
+            setErrorMessage(errorCode+" " +errorMessage);
           })
           
     }
@@ -75,7 +91,7 @@ const Login = () => {
         </div>
         <form onSubmit={e => e.preventDefault()} className="w-3/12 absolute z-1 p-12 bg-black  my-40 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-60">
         <h1 className="font-bold text-3xl mb-4">{isSignin ? "Sign in " : "Sign Up"}</h1>
-       {!isSignin && <input type="text" placeholder='Full Name' className="p-2 my-2 w-full outline-blue-500 bg-slate-700 rounded-md" />}
+       {!isSignin && <input ref={name} type="text" placeholder='Full Name' className="p-2 my-2 w-full outline-blue-500 bg-slate-700 rounded-md" />}
             <input ref={email} type="email" placeholder='Email Address' className="p-2 my-2 w-full outline-blue-500 bg-slate-700 rounded-md" />
             <input ref={password} type="password" placeholder='Password' className="p-2 my-2 w-full outline-blue-500 bg-slate-700 rounded-md" />
             <p className="text-red-500">{ErrorMessage}</p>

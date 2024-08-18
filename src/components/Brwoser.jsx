@@ -3,8 +3,12 @@ import Header from './Header';
 import { signOut } from 'firebase/auth';
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Brwoser = () => {
+  //subscribing yhe store
+  const user = useSelector((store)=>store.user);
+
   const navigate  = useNavigate();
   const handleSignout = () => {
     signOut(auth).then(() => {
@@ -16,10 +20,10 @@ const Brwoser = () => {
     });
   }
  return (
-    <>
+    < >
         <Header/>
-        <div className="flex p-5 gap-5 justify-end absolute z-[999] right-1"> <img className="h-12 w-12 object-cover  " src="https://ih0.redbubble.net/image.618427277.3222/flat,1000x1000,075,f.u2.jpg" alt="" />
-        <button onClick={handleSignout} className="font-semibold text-white " >signout</button>
+        <div className="flex mt-4 p-5 gap-5 justify-end absolute z-[999] right-1"> <img className="h-12 w-12 object-cover rounded-full" src={user?.photoURL} alt="" />
+        <button onClick={handleSignout} className="font-semibold text-white bg-orange-700 p-2 rounded " >signout</button>
         </div>    
 
     </>
