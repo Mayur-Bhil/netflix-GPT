@@ -8,5 +8,5 @@ const appStore = configureStore(
         }
     }
 )
-
+//this data goes to App root level ,top level using provider
 export default appStore;

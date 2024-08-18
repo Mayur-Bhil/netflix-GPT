@@ -12,6 +12,6 @@ const Userslice = createSlice({
         }
     }
 })
-
+//this data goes to appstore
 export const {addUser,removeUser} = Userslice.actions;
 export default Userslice.reducer;
