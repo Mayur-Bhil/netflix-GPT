@@ -1,24 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './Header';
 import { signOut } from 'firebase/auth';
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { API_OPTIONS } from '../utils/constansts';
+import {addnowPlayingMovies} from "../utils/moviesSclice"
+import useNowplayingMovies from '../../hooks/useNowplayingMovies';
 
 const Brwoser = () => {
   //subscribing yhe store
   const user = useSelector((store)=>store.user);
-
+  
   const navigate  = useNavigate();
   const handleSignout = () => {
     signOut(auth).then(() => {
-      navigate("/")
-      // Sign-out successful.
     }).catch((error) => {
       // An error happened.
       navigate("/error")
     });
   }
+  useNowplayingMovies();
+  
+
  return (
     < >
         <Header/>
