@@ -3,11 +3,11 @@ import Header from './Header';
 import useNowplayingMovies from "../hooks/useNowplayingMovies";
 import MainContainer from './MainContainer';
 import SecondaryContainer from './SecondaryContainer';
-import usepopularMovies from '../hooks/usePopularMovies';
+import usePopularMovies from "../hooks/usePopularMovies";
  
 const Brwoser = () => {
  useNowplayingMovies();
- usepopularMovies();
+ usePopularMovies();
   
 
  return (
