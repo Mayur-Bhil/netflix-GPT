@@ -6,10 +6,10 @@ console.log(movies);
 
 
   return (
-    <div className='px-2'>
+    <div className='px-2 overscroll-x-auto'>
             <h1 className='text-3xl text-white py-6 font-semibold'>{title}</h1>
-        <div className='flex overflow-x-scroll'>
-            <div className='flex gap-3'>
+        <div className='flex overflow-scroll overflow-y-hidden'>
+            <div className='flex gap-3 '>
               {movies?.map((movie)=><MovieCard key={movie.id} poster_path={movie.poster_path}/>)}
             </div>
         </div>

@@ -10,12 +10,12 @@ const SecondaryContainer = () => {
        <div className="-mt-64 relative z-40">
        <MovieList title={"Now Playing"} movies={movies?.nowPlayingMovies}/>
         <MovieList title={"Popular"} movies={movies?.popularMovies}/>
-        <MovieList title={"Top Rated"} movies={movies?.nowPlayingMovies}/>
-        <MovieList title={"Up-coming"} movies={movies?.nowPlayingMovies}/>
+        <MovieList title={"Top Rated"} movies={movies?.topRatedOnly}/>
+        <MovieList title={"Up-coming"} movies={movies?.upcomming}/>
        </div>
     </div>
     )
   )
 }
 
-export default SecondaryContainer
+export default SecondaryContainer;
