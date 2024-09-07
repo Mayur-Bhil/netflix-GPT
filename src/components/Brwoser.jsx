@@ -7,6 +7,7 @@ import useUpCommingMovies from '../hooks/useUpCommingMovies';
 
 import useTopRatedMovies from '../hooks/useTopRatedMovies';
 import usePopularMovies from '../hooks/usePopularMovies';
+import GptSearch from './GptSearch';
  
 const Brwoser = () => {
  useNowplayingMovies();
@@ -18,6 +19,7 @@ const Brwoser = () => {
  return (
     < >
         <Header/>
+        <GptSearch/>
         <MainContainer/>
         <SecondaryContainer/>
     </>

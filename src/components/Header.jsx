@@ -36,12 +36,18 @@ function Header() {
     return ()=>unsubscribe();
   },[]);
 
+  const handalButtonClick = ()=> {
+    
+  }
+
   return (
     <div className="bg-gradient-to-b from-black h-37">
          <div className="px-12 bg-gradient-to-b from-black  py-4 absolute z-10 w-full h-18">
          <img className='w-[240px] cursor-pointer' src={APP_LOGO} alt="NetFlix Logo" /> 
-          {user && <div className="flex mt-2 p-4 gap-5 justify-end absolute z-50 top-1 right-0"> 
-            <img className="h-12 w-12 object-cover rounded-full cursor-pointer" src={user?.photoURL} alt="ProfilePhoto" />
+          {user && <div className="flex mt-2 p-4 gap-5 justify-end absolute z-50 top-1 right-0"> l̥
+l            <button onClick={ handalButtonClick} className='px-4 py-2 bg-purple-800 text-white rounded-lg'>Gpt Serch</button>
+
+            <img className="h-12 w-12 object-cover rounded-full cursor-pointer animate-pulse" src={user?.photoURL} alt="ProfilePhoto" />
         <button onClick={handleSignout} className="font-semibold w-20 text-white bg-orange-700 p-2 rounded ">signout</button>
         </div>} 
          </div>

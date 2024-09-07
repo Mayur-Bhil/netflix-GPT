@@ -23,5 +23,5 @@ const {original_title,overview,id} = mainmovie;
   )
 }
 
-export default MainContainer
+export default MainContainer;
 
