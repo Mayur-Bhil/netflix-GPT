@@ -44,7 +44,7 @@ const Login = () => {
 
             });
             
-            console.log(user);
+          
             
             
           })

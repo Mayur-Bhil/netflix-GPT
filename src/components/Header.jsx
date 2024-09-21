@@ -1,18 +1,20 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'; 
 import { addUser, removeUser } from '../utils/Userslice';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../utils/firebase';
 import { APP_LOGO, Supported_Language } from '../utils/constansts';
 import { toggleGptSearchView } from '../utils/gptSclice';
-import Lang from '../utils/LanguageConstants';
+import { changeLanguage } from '../utils/configSclice';
+
+
 
 function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store)=>store?.user);
-
+  const showGptSearch = useSelector((store)=>store.gpt.showGptSearch)
   const handleSignout = () => {
     signOut(auth).then(() => {
     }).catch((error) => {
@@ -41,18 +43,24 @@ function Header() {
   const handalButtonClick = ()=> {
     dispatch(toggleGptSearchView())
   }
+  const handallanguagechange = (e) => {
+      dispatch(changeLanguage(e.target.value))
+      
+  }
 
   return (
     <div className="bg-gradient-to-b from-black h-37">
          <div className="px-12 bg-gradient-to-b from-black  py-4 absolute z-10 w-full h-18">
          <img className='w-[240px] cursor-pointer' src={APP_LOGO} alt="NetFlix Logo" /> 
           {user && <div className="flex mt-2 p-4 gap-5 justify-end absolute z-50 top-1 right-0">
-            <select  className='p-2 m-3 bg-gray-700 text-white'>
+            {showGptSearch && ( <select onChange={handallanguagechange} className='p-2  bg-gray-700 text-white'>
             {Supported_Language.map((Lang)=>(
               <option key={Lang.identifier} value={Lang.identifier}>{Lang.name}</option>
             ))}
-            </select>
-              <button onClick={ handalButtonClick} className='px-4 py-2 bg-purple-800 text-white rounded-lg'>Gpt Search</button>
+            </select>)}
+              <button onClick={ handalButtonClick} className='px-2 py-2 bg-purple-800 text-white rounded-lg'>
+                {showGptSearch ? "Home" : "GPT Search"}
+              </button>
 
             <img className="h-12 w-12 object-cover rounded-full cursor-pointer animate-pulse" src={user?.photoURL} alt="ProfilePhoto" />
         <button onClick={handleSignout} className="font-semibold w-20 text-white bg-orange-700 p-2 rounded ">signout</button>
