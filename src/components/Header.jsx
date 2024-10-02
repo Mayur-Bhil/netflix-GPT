@@ -26,7 +26,6 @@ function Header() {
   useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
         const {uid,email,displayName,photoURL} = user;
         dispatch(addUser({uid:uid,email : email,displayName : displayName,photoURL:photoURL}));
@@ -49,8 +48,8 @@ function Header() {
   }
 
   return (
-    <div className="bg-gradient-to-b from-black h-37">
-         <div className="px-12 bg-gradient-to-b from-black  py-4 absolute z-10 w-full h-18">
+    <div className="bg-gradient-to-b from-black">
+         <div className="px-12 bg-gradient-to-b from-black  py-4 absolute z-10 w-full">
          <img className='w-[240px] cursor-pointer' src={APP_LOGO} alt="NetFlix Logo" /> 
           {user && <div className="flex mt-2 p-4 gap-5 justify-end absolute z-50 top-1 right-0">
             {showGptSearch && ( <select onChange={handallanguagechange} className='p-2  bg-gray-700 text-white'>
