@@ -4,7 +4,7 @@ const Lang = {
         GptPlaceHolder : "What Do you Like to Watch Today ?",
     },
     hindi :{
-        search : "खोज" ,
+        search : "खोजे" ,
         GptPlaceHolder : "आज आप क्या देखना पसंद करते हैं?"
     },
     spanish :{

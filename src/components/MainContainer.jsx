@@ -16,7 +16,7 @@ const {original_title,overview,id} = mainmovie;
 
 
   return (
-    <div>
+    <div className='bg-black'>
         <VideoTitle title={original_title} overview={overview}/>
         <VideoBackground moviId={id}/>
     </div>
