@@ -80,10 +80,10 @@ const Login = () => {
   return (
     <div>
         <Header/>
-        <div className="md:absolute absolute w-full h-screen object-cover">
+        <div className="absolute w-full h-screen object-cover">
         <img className="bg-gradient-to-b from-black h-screen object-cover w-full" src="https://assets.nflxext.com/ffe/siteui/vlv3/826348c2-cdcb-42a0-bc11-a788478ba5a2/6d20b198-e7ab-4e9f-a1aa-666faa0298f9/IN-en-20240729-POP_SIGNUP_TWO_WEEKS-perspective_WEB_a67d8c9e-8121-4a74-98e4-8005eb2df227_large.jpg" alt="netflix Logo" />
         </div>
-        <form onSubmit={e => e.preventDefault()} className="md:w-3/12 left-1/2 top-[25%] absolute z-1  p-12 bg-black -translate-x-[50%] -translate-y-[50%] my-40 mx-5 right-0 text-white rounded-lg bg-opacity-60">
+        <form onSubmit={e => e.preventDefault()} className="xl:w-3/12 left-1/2 top-[25%] absolute z-1 p-12 bg-black -translate-x-[50%] -translate-y-[50%] my-40 mx-5 right-0 text-white rounded-lg bg-opacity-60 sm:w-6/12">
         <h1 className="font-bold text-3xl mb-4">{isSignin ? "Sign in " : "Sign Up"}</h1>
        {!isSignin && <input ref={name} type="text" placeholder='Full Name' className="p-2 my-2 w-full outline-blue-500 bg-slate-700 rounded-md" />}
             <input ref={email} type="email" placeholder='Email Address' className="p-2 my-2 w-full outline-blue-500 bg-slate-700 rounded-md" />

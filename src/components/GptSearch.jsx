@@ -6,9 +6,9 @@ import { BG_URL } from "../utils/constansts";
 const GptSearch = () => {
   return (
     <div>
-      <div className="fixed -z-20 ">
+      <div className="absolute -z-20">
         <img
-          className="sm:bg-gradient-to-b from-black h-screen w-screen object-cover"
+          className="xl:bg-gradient-to-b from-black h-screen w-screen object-cover"
           src={BG_URL}
           alt="netflix Logo"
         />
@@ -20,3 +20,4 @@ const GptSearch = () => {
 };
 
 export default GptSearch;
+ 

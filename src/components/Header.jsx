@@ -52,18 +52,18 @@ function Header() {
   };
 
   return (
-    <div className="px-12 bg-gradient-to-b from-black  py-4 absolute z-10 w-full h-32">
+    <div className="px-12 bg-gradient-to-b from-black  py-4 absolute z-10 w-full">
       <img
-        className="md:w-[200px] cursor-pointer w-[150px]"
+        className="w-[200px] cursor-pointer sm:w-[150px]"
         src={APP_LOGO}
         alt="NetFlix Logo"
       />
       {user && (
-        <div className="md:flex mt-2 p-4 gap-5 justify-end absolute z-50 top-1 right-0 flex w-[350px] ">
+        <div className="flex mt-2 p-4 gap-5 justify-end absolute z-50 top-1 right-0 sm:flex w-[350px]">
           {showGptSearch && (
             <select
               onChange={handallanguagechange}
-              className="p-2  bg-gray-700 text-white"
+              className="p-2 bg-gray-600 text-white"
             >
               {Supported_Language.map((Lang) => (
                 <option
@@ -78,7 +78,7 @@ function Header() {
           )}
           <button
             onClick={handalButtonClick}
-            className="md:px-4 py-2 bg-purple-800 text-white rounded-lg px-2"
+            className="px-4 py-2 bg-purple-800 text-white rounded-lg sm:px-2"
           >
             {showGptSearch ? "Home" : "GPT Search"}
           </button>
