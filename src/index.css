@@ -1,6 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: Gilroy;
+  src: url(./utils/fonts/Gilroy-Light.ttf);
+}
+@font-face {
+  font-family:Gilroy-Bold;
+  src: url(./utils/fonts/Gilroy-Bold.ttf);
+}
 
 @layer utilities {
     

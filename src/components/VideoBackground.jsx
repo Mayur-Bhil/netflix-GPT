@@ -9,9 +9,9 @@ const trailerVideo = useSelector((store)=>store?.movies?.trailerVideo);
 
 
   return (
-    <div className='w-screen h-max bg-gradient-to-l from-black bg-opacity-80 bg-black '>
+    <div className='w-screen h-max pt-20 bg-gradient-to-l from-black bg-opacity-80 bg-black '>
      <div className='bg-black w-full'>
-     <iframe className='w-screen aspect-video sm:h-[68vh] sm:w-screen' src={"https://www.youtube.com/embed/"+trailerVideo?.key+ "?&autoplay=1&&mute=1"}
+     <iframe className='w-full aspect-video sm:h-[68vh] sm:w-screen' src={"https://www.youtube.com/embed/"+trailerVideo?.key+ "?&autoplay=1&&mute=1"}
          title="YouTube video player"
          allow="accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
          refererpolicy="strict-origin-when-cross-origin"> 
